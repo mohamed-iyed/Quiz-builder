@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <!-- icons -->
+  <link rel="stylesheet" href="fontawesome-free-6.0.0-beta3-web/css/all.css" />
+  <!-- main css -->
+  <link rel="stylesheet" href="assets/style.css" />
+  <body>
+    <header>
+      <p class="header-title">Quiz</p>
+      <button class="new-question">
+        <i class="fas fa-plus"></i> Create new Question
+      </button>
+    </header>
+    <main>
+      <button class="sub-btn">
+        Submit Questions<i class="fas fa-save"></i>
+      </button>
+      <div class="quiz-title">
+        <p>Quiz-Name: test fares</p>
+        <p class="qst-id">ID: <span>1234234234</span></p>
+      </div>
+      <!-- quiz-builder-form -->
+      <form action="" class="quiz-builder">
+        <div class="qst-section">
+          <label for="qst_input">Question</label>
+          <input type="text" id="qst_input" placeholder="Option Title...?" />
+          <button id="mult_qst_toggle"></button
+          ><label for="mult_qst_toggle">Multiple</label>
+        </div>
+        <!-- text editor -->
+        <div id="toolbar-container"></div>
+        <div id="editor">
+          <p>This is the initial editor content.</p>
+        </div>
+        <!-- drop img -->
+        <div class="drop-img-field">
+          <label for="img-field">Drop your image here or browse</label>
+          <input type="file" id="img-field" accept="image/*" />
+        </div>
+        <!-- drop audio -->
+        <div class="drop-audio-field">
+          <label for="audio-field">Drop your audio here or browse </label>
+          <input type="file" id="audio-field" accept="audio/*" />
+        </div>
+        <!-- drop video -->
+        <div class="drop-video-field">
+          <input type="text" placeholder="add link video here" />
+        </div>
+        <!-- answers area -->
+        <div class="answers-wrapper">
+          <div class="answers">
+            <label for="">True/False</label>
+            <label for="">Answer</label>
+            <div class="answer">
+              <input type="checkbox" />
+              <input type="text" />
+              <i class="fas fa-trash"></i>
+            </div>
+            <div class="answer">
+              <input type="checkbox" />
+              <input type="text" />
+              <i class="fas fa-trash"></i>
+            </div>
+          </div>
+          <button class="add_choice">Add Choice</button>
+        </div>
+      </form>
+    </main>
+
+    <!-- main script -->
+    <script src="assets/index.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/decoupled-document/ckeditor.js"></script>
+    <script>
+      DecoupledEditor.create(document.querySelector("#editor"))
+        .then((editor) => {
+          const toolbarContainer = document.querySelector("#toolbar-container");
+
+          toolbarContainer.appendChild(editor.ui.view.toolbar.element);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    </script>
+  </body>
+</html>
