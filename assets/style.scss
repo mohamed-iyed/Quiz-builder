@@ -79,6 +79,16 @@ body {
 
     // Quiz-app-builder-container
     .quiz-builder {
+      position: relative;
+      > .fa-trash {
+        position: absolute;
+        top: -20px;
+        right: 30px;
+        cursor: pointer;
+        padding: 1rem;
+        width: 40px;
+        height: 40px;
+      }
       width: 80%;
       max-width: 900px;
       display: flex;
